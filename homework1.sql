@@ -49,10 +49,10 @@ WHERE last_name LIKE '__%es' and store_id =1;
 --(9)How many payment amounts (4.99, 5.99, etc.) 
 --had a number of rentals above 250 for customers
 --with ids between 380 and 430? (use group by and having > 250)
-SELECT rental_id, COUNT(amount)
+SELECT COUNT(amount)
 FROM payment
-WHERE rental_id BETWEEN 380 AND 430
-GROUP BY rental_id
+WHERE customer_id BETWEEN 380 AND 430
+GROUP BY amount
 HAVING COUNT(amount) > 250;
 
 
@@ -61,7 +61,7 @@ HAVING COUNT(amount) > 250;
 --And what rating has the most
 --movies total?
 
--SELECT COUNT(rating), MAX(film_id)
+SELECT rating, MAX(film_id)
 FROM film
 GROUP BY film_id
-ORDER BY rating;
+ORDER BY rating DESC;
